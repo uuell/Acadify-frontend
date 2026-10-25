@@ -1,0 +1,248 @@
+/* Scoped styles: avoids collisions with Admin Dashboard and User Management forms */
+.admin-bulk-academic {
+  box-sizing: border-box;
+  margin: 0 0 24px;
+  padding: 24px;
+  background: #242421;
+  border: 1px solid #393932;
+  border-radius: 14px;
+  color: #f6f2e9;
+}
+.admin-bulk-academic *,
+.admin-bulk-academic *::before,
+.admin-bulk-academic *::after {
+  box-sizing: border-box;
+}
+.admin-bulk-academic-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.admin-bulk-academic-heading h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.admin-bulk-academic-heading p {
+  margin: 0;
+  max-width: 740px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c6c2b8;
+}
+.admin-bulk-academic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.admin-bulk-academic button {
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.admin-bulk-academic-actions button {
+  padding: 10px 14px;
+  border: 1px solid #90733a;
+  border-radius: 8px;
+  color: #e7b64d;
+  background: #22221f;
+  font-size: 13px;
+}
+.admin-bulk-academic button:hover:not(:disabled) {
+  background: #37301e;
+  border-color: #e0aa28;
+}
+.admin-bulk-academic button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.admin-bulk-academic-upload {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 24px;
+}
+.admin-bulk-academic-file-picker {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px dashed #756039;
+  border-radius: 10px;
+  background: #171a1e;
+}
+.admin-bulk-academic-file-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #30291b;
+  color: #e7b64d;
+  font-size: 25px;
+}
+.admin-bulk-academic-file-text {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0;
+  min-width: 0;
+  gap: 5px;
+  line-height: 1.3;
+}
+.admin-bulk-academic-file-text strong {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: #f6f2e9;
+}
+.admin-bulk-academic-file-text span {
+  display: block;
+  font-size: 12px;
+  color: #a8abb0;
+}
+/* Hide the native picker regardless of global form input rules. */
+.admin-bulk-academic input.admin-bulk-academic-native-input[type="file"] {
+  display: none !important;
+}
+.admin-bulk-academic button.admin-bulk-academic-browse {
+  flex: 0 0 auto;
+  padding: 10px 14px;
+  background: #29271f;
+  border: 1px solid #997939;
+  border-radius: 8px;
+  color: #f0bc4b;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.admin-bulk-academic button.admin-bulk-academic-preview-button {
+  flex: 0 0 auto;
+  min-width: 160px;
+  padding: 12px 20px;
+  border: 1px solid #d8a321;
+  border-radius: 9px;
+  background: #d8a321;
+  color: #171717;
+  font-size: 13px;
+  font-weight: 700;
+}
+.admin-bulk-academic button.admin-bulk-academic-preview-button:disabled {
+  background: #3b3424;
+  border-color: #6a572f;
+  color: #c4aa70;
+}
+.admin-bulk-academic-error,
+.admin-bulk-academic-success {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+.admin-bulk-academic-error {
+  background: #492727;
+  color: #ffd6d6 !important;
+}
+.admin-bulk-academic-success {
+  background: #244131;
+  color: #c9f4d9 !important;
+}
+.admin-bulk-academic-preview {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid #444037;
+}
+.admin-bulk-academic-summary {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 14px;
+  color: #e8c47c;
+}
+.admin-bulk-academic-errors {
+  margin: 14px 0;
+  padding: 14px 18px;
+  border: 1px solid #855a3e;
+  border-radius: 8px;
+}
+.admin-bulk-academic-errors h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+.admin-bulk-academic-errors li {
+  margin: 6px 0;
+}
+.admin-bulk-academic-errors p,
+.admin-bulk-academic-note {
+  color: #c8c2b7;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.admin-bulk-academic-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+.admin-bulk-academic table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.admin-bulk-academic th,
+.admin-bulk-academic td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #454138;
+  white-space: nowrap;
+}
+.admin-bulk-academic th {
+  color: #e8c47c;
+}
+.admin-bulk-academic td span {
+  display: block;
+  color: #bcb5a9;
+  font-size: 12px;
+}
+.admin-bulk-academic button.admin-bulk-academic-confirm {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #d8a321;
+  color: #171717;
+  font-weight: 700;
+}
+@media (max-width: 850px) {
+  .admin-bulk-academic-upload {
+    flex-direction: column;
+  }
+  .admin-bulk-academic button.admin-bulk-academic-preview-button {
+    width: 100%;
+  }
+}
+@media (max-width: 540px) {
+  .admin-bulk-academic {
+    padding: 16px;
+  }
+  .admin-bulk-academic-file-picker {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  .admin-bulk-academic-file-text {
+    flex-basis: calc(100% - 60px);
+  }
+  .admin-bulk-academic button.admin-bulk-academic-browse {
+    width: 100%;
+  }
+  .admin-bulk-academic-actions {
+    width: 100%;
+  }
+  .admin-bulk-academic-actions button {
+    flex: 1;
+  }
+}

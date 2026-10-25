@@ -1,0 +1,373 @@
+/* Acadify — Manual Progression Checker */
+.progression-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  min-width: 0;
+  color: var(--admin-text, #c9d1d9);
+}
+
+.progression-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.progression-header h1 {
+  margin: 0 0 8px;
+  color: #f0f6fc;
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.progression-header p {
+  margin: 0;
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.progression-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.progression-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding: 22px;
+  background: var(--admin-card-bg, #21262d);
+  border: 1px solid var(--admin-border, #30363d);
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.progression-stat-card:hover { border-color: rgba(210, 153, 34, 0.45); }
+
+.progression-stat-card span {
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.progression-stat-card strong {
+  color: var(--admin-gold, #d29922);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.progression-stat-card.eligible strong { color: #3fb950; }
+.progression-stat-card.ineligible strong { color: #e3b341; }
+.progression-stat-card.selected strong { color: #58a6ff; }
+
+.progression-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.progression-search,
+.progression-filter {
+  min-height: 42px;
+  padding: 10px 14px;
+  background: var(--admin-card-bg, #21262d);
+  border: 1px solid var(--admin-border, #30363d);
+  border-radius: 8px;
+  color: #f0f6fc;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.progression-search { flex: 1 1 260px; min-width: 0; }
+.progression-search::placeholder { color: var(--admin-text-muted, #8b949e); }
+.progression-filter { flex: 0 1 160px; cursor: pointer; }
+.progression-filter option { background: #21262d; color: #f0f6fc; }
+
+.progression-search:focus,
+.progression-filter:focus {
+  border-color: var(--admin-gold, #d29922);
+  box-shadow: 0 0 0 3px rgba(210, 153, 34, 0.12);
+}
+
+.progression-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.progression-btn-primary {
+  background: var(--admin-gold, #d29922);
+  border-color: var(--admin-gold, #d29922);
+  color: #0d1117;
+}
+.progression-btn-primary:hover:not(:disabled) { background: #e3b341; }
+
+.progression-btn-secondary {
+  background: rgba(210, 153, 34, 0.12);
+  border-color: var(--admin-gold, #d29922);
+  color: var(--admin-gold, #d29922);
+}
+.progression-btn-secondary:hover:not(:disabled) { background: rgba(210, 153, 34, 0.2); }
+
+.progression-btn:disabled {
+  opacity: 0.38;
+  filter: grayscale(0.55);
+  cursor: not-allowed;
+}
+
+.progression-alert {
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.progression-alert-error {
+  background: rgba(248, 81, 73, 0.08);
+  border: 1px solid rgba(248, 81, 73, 0.3);
+  color: #ff7b72;
+}
+.progression-alert-success {
+  background: rgba(63, 185, 80, 0.08);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+  color: #3fb950;
+}
+
+.progression-table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--admin-card-bg, #21262d);
+  border: 1px solid var(--admin-border, #30363d);
+  border-radius: 12px;
+}
+
+.progression-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.progression-table th {
+  padding: 15px 14px;
+  background: rgba(13, 17, 23, 0.35);
+  border-bottom: 1px solid var(--admin-border, #30363d);
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  white-space: nowrap;
+}
+
+.progression-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--admin-border, #30363d);
+  color: var(--admin-text, #c9d1d9);
+  font-size: 12px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+.progression-table tbody tr:last-child td { border-bottom: none; }
+.progression-table tbody tr:hover { background: rgba(210, 153, 34, 0.04); }
+
+.progression-table th:first-child,
+.progression-table td:first-child { width: 42px; text-align: center; }
+.progression-table th:last-child,
+.progression-table td:last-child { width: 90px; }
+
+.progression-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--admin-gold, #d29922);
+  cursor: pointer;
+}
+.progression-table input[type="checkbox"]:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.progression-student-name { color: #f0f6fc !important; font-weight: 600; }
+.progression-student-number { color: var(--admin-text-muted, #8b949e) !important; font-variant-numeric: tabular-nums; }
+
+.progression-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.progression-status-eligible { color: #3fb950; background: rgba(63, 185, 80, 0.12); }
+.progression-status-ineligible { color: #e3b341; background: rgba(210, 153, 34, 0.12); }
+
+/* Keep the table compact while preserving access to the full reasons text. */
+.progression-reasons {
+  min-width: 190px;
+  max-width: 260px;
+  max-height: 70px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 12px;
+  line-height: 1.5;
+  scrollbar-width: thin;
+  scrollbar-color: #484f58 transparent;
+}
+
+.progression-table .progression-btn { min-height: 34px; padding: 7px 12px; font-size: 12px; }
+
+.progression-empty,
+.progression-loading {
+  padding: 36px 20px;
+  text-align: center;
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 14px;
+}
+
+.progression-page button:focus-visible,
+.progression-page input:focus-visible,
+.progression-page select:focus-visible {
+  outline: 2px solid var(--admin-gold, #d29922);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .progression-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+
+@media (max-width: 640px) {
+  .progression-header { margin-bottom: 24px; }
+  .progression-header h1 { font-size: 25px; }
+  .progression-stats { gap: 10px; margin-bottom: 22px; }
+  .progression-stat-card { padding: 16px; }
+  .progression-stat-card strong { font-size: 26px; }
+  .progression-search { flex-basis: 100%; }
+  .progression-filter { flex: 1 1 100%; }
+  .progression-toolbar > .progression-btn { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progression-stat-card, .progression-btn { transition: none; }
+}
+
+/* Expandable student details */
+.progression-table .progression-expanded-row,
+.progression-table .progression-expanded-row:hover {
+  background: rgba(13, 17, 23, 0.55);
+}
+.progression-table .progression-expanded-row > td {
+  padding: 0;
+}
+.progression-details-panel {
+  padding: 24px;
+  border-top: 1px solid var(--admin-border, #30363d);
+  color: var(--admin-text, #c9d1d9);
+}
+.progression-details-heading { margin-bottom: 20px; }
+.progression-details-heading h3 {
+  margin: 0 0 6px;
+  color: #f0f6fc;
+  font-size: 17px;
+}
+.progression-details-heading p {
+  margin: 0;
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 12px;
+}
+.progression-details-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(0, 1.8fr);
+  gap: 24px;
+}
+.progression-details-section {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--admin-border, #30363d);
+  border-radius: 10px;
+  background: var(--admin-card-bg, #21262d);
+}
+.progression-details-section h4 {
+  margin: 0 0 14px;
+  color: #f0f6fc;
+  font-size: 13px;
+}
+.progression-reason-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--admin-text, #c9d1d9);
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.progression-reason-list li + li { margin-top: 8px; }
+.progression-reason-list li::marker { color: var(--admin-gold, #d29922); }
+.progression-no-issues {
+  margin: 0;
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.progression-subject-table-wrapper { max-width: 100%; overflow-x: auto; }
+.progression-subject-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.progression-subject-table th,
+.progression-subject-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--admin-border, #30363d);
+  color: var(--admin-text, #c9d1d9);
+  font-size: 12px;
+  vertical-align: top;
+}
+.progression-subject-table th {
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.progression-subject-table td strong,
+.progression-subject-table td span { display: block; }
+.progression-subject-table td span { margin-top: 4px; color: var(--admin-text-muted, #8b949e); }
+.progression-details-button { white-space: nowrap; }
+.progression-table .progression-btn-primary:disabled,
+.progression-toolbar .progression-btn-primary:disabled {
+  background: #30363d;
+  border-color: #484f58;
+  color: #8b949e;
+  opacity: 0.65;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+@media (max-width: 900px) {
+  .progression-details-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .progression-details-panel { padding: 14px; }
+  .progression-details-section { padding: 14px; }
+}

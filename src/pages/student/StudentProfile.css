@@ -1,0 +1,227 @@
+.student-profile-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.student-profile-header-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px;
+  margin-top: 24px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+}
+
+.student-profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 50%;
+}
+
+.student-profile-avatar span {
+  color: #58a6ff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.student-profile-header-info {
+  min-width: 0;
+}
+
+.student-profile-header-info h2 {
+  margin: 0 0 8px;
+  color: #f0f6fc;
+  font-size: 24px;
+}
+
+.student-profile-subtitle {
+  margin: 0 0 14px;
+  color: #8b949e;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.student-profile-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.student-profile-standing,
+.student-profile-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.student-profile-standing {
+  color: #3fb950;
+  background: rgba(63, 185, 80, 0.12);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+.student-profile-type {
+  color: #c9d1d9;
+  background: #21262d;
+  border: 1px solid #30363d;
+}
+
+@media (max-width: 600px) {
+  .student-profile-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .student-profile-header-info h2 {
+    font-size: 20px;
+  }
+}
+
+.student-profile-stats {
+  margin-top: 28px;
+}
+
+.student-profile-stats h2 {
+  color: #f0f6fc;
+  font-size: 18px;
+  margin: 0 0 16px;
+}
+
+.student-profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.student-profile-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+}
+
+.student-profile-stat-card p {
+  margin: 0;
+  color: #8b949e;
+  font-size: 14px;
+}
+
+.student-profile-stat-card strong {
+  color: #58a6ff;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.student-profile-stat-card span {
+  color: #8b949e;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .student-profile-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .student-profile-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.student-profile-info-card {
+  margin-top: 28px;
+  padding: 24px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+}
+
+.student-profile-info-card h2 {
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  color: #f0f6fc;
+  font-size: 18px;
+  border-bottom: 1px solid #30363d;
+}
+
+.student-profile-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.student-profile-info-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 8px;
+}
+
+.student-profile-info-field span {
+  color: #8b949e;
+  font-size: 13px;
+}
+
+.student-profile-info-field strong {
+  color: #c9d1d9;
+  font-size: 14px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .student-profile-info-card {
+    padding: 20px;
+  }
+
+  .student-profile-info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.student-profile-standing,
+.student-profile-type,
+.student-profile-deans-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.student-profile-standing--good {
+  color: #3fb950;
+  background: rgba(63, 185, 80, 0.12);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+.student-profile-standing--other {
+  color: #d29922;
+  background: rgba(210, 153, 34, 0.12);
+  border: 1px solid rgba(210, 153, 34, 0.3);
+}
+
+.student-profile-deans-badge {
+  color: #d29922;
+  background: rgba(210, 153, 34, 0.12);
+  border: 1px solid rgba(210, 153, 34, 0.3);
+}

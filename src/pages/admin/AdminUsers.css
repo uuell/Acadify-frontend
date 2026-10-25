@@ -1,0 +1,280 @@
+.admin-users-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.admin-users-search,
+.admin-users-filter-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.admin-users-search input {
+  flex: 1;
+  min-width: 220px;
+}
+.admin-users-filters input,
+.admin-users-filters select {
+  min-height: 42px;
+  padding: 10px 14px;
+  color: #c9d1d9;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  font: inherit;
+}
+.admin-users-filters input:focus,
+.admin-users-filters select:focus {
+  outline: 2px solid #d29922;
+  outline-offset: 1px;
+}
+.admin-users-filters button,
+.admin-users-pagination button {
+  min-height: 42px;
+  padding: 10px 18px;
+  color: #0d1117;
+  background: #d29922;
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.admin-users-filters button:disabled,
+.admin-users-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.admin-users-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  color: #8b949e;
+  font-size: 14px;
+}
+.admin-users-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.admin-user-reset-button {
+  padding: 8px 12px;
+  background: transparent;
+  color: #d29922;
+  border: 1px solid #d29922;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  font: inherit;
+  font-size: 13px;
+}
+.admin-user-reset-button:hover:not(:disabled) {
+  background: rgba(210, 153, 34, 0.12);
+}
+.admin-user-reset-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.admin-password-reset-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  color: #c9d1d9;
+}
+.admin-password-reset-result h3 {
+  margin: 0 0 10px;
+  color: #d29922;
+}
+.admin-password-reset-result code {
+  color: #58a6ff;
+  overflow-wrap: anywhere;
+}
+.admin-password-reset-result button {
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  cursor: pointer;
+}
+/* Horizontal scrolling remains the only table layout at all widths. */
+.admin-users-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #484f58 #161b22;
+}
+.admin-users-table-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.admin-users-table-scroll::-webkit-scrollbar-track {
+  background: #161b22;
+  border-radius: 10px;
+}
+.admin-users-table-scroll::-webkit-scrollbar-thumb {
+  background: #484f58;
+  border-radius: 10px;
+  border: 2px solid #161b22;
+}
+.admin-users-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #d29922;
+}
+.admin-users-table-scroll .admin-recent-users-table {
+  min-width: 1050px;
+  width: 100%;
+}
+.admin-users-table-scroll th:last-child,
+.admin-users-table-scroll td:last-child {
+  white-space: nowrap;
+}
+.admin-dashboard-section {
+  min-width: 0;
+}
+.admin-user-delete-button {
+  margin-left: 8px;
+  padding: 8px 12px;
+  border: 1px solid #f85149;
+  border-radius: 6px;
+  background: transparent;
+  color: #f85149;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.admin-user-delete-button:hover:not(:disabled) {
+  background: rgba(248, 81, 73, 0.12);
+}
+.admin-user-delete-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.admin-users-delete-success {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  background: #21262d;
+  color: #c9d1d9;
+  border: 1px solid #238636;
+  border-radius: 8px;
+}
+.admin-users-delete-success button {
+  padding: 6px 12px;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .admin-users-table-scroll .admin-recent-users-table {
+    min-width: 950px;
+  }
+  .admin-user-reset-button,
+  .admin-user-delete-button {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .admin-users-search input,
+  .admin-users-search button,
+  .admin-users-filter-options select,
+  .admin-users-filter-options button {
+    width: 100%;
+  }
+  .admin-users-pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .admin-users-pagination-controls {
+    justify-content: space-between;
+  }
+  .admin-password-reset-result,
+  .admin-users-delete-success {
+    flex-wrap: wrap;
+  }
+}
+
+.admin-users-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 4px 0 20px;
+}
+.admin-users-bulk-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 16px;
+  border: 1px solid #b78a2b;
+  border-radius: 8px;
+  background: #302819;
+  color: #e9b12e;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.admin-users-bulk-toggle:hover {
+  background: #40331c;
+  border-color: #e9b12e;
+}
+.admin-users-bulk-toggle.is-open {
+  background: #3a301e;
+}
+.admin-users-bulk-toggle:focus-visible {
+  outline: 2px solid #f1c65e;
+  outline-offset: 3px;
+}
+#admin-bulk-academic-panel[hidden] {
+  display: none;
+}
+@media (max-width: 600px) {
+  .admin-users-bulk-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.admin-users-export-button {
+  padding: 12px 20px;
+  border: 1px solid #d9a321;
+  border-radius: 8px;
+  background: transparent;
+  color: #d9a321;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.admin-users-export-button:hover:not(:disabled) {
+  background: rgba(217, 163, 33, 0.12);
+}
+
+.admin-users-export-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

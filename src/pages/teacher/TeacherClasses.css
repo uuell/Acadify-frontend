@@ -1,0 +1,924 @@
+
+/* Acadify Teacher Classes Management */
+
+.teacher-classes-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #c9d1d9;
+}
+
+.teacher-classes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.teacher-classes-header h1 {
+  margin: 0 0 8px;
+  color: #f0f6fc;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.teacher-classes-header p {
+  margin: 0;
+  color: #8b949e;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.teacher-classes-create-btn {
+  padding: 11px 18px;
+  background: #8957e5;
+  border: 1px solid #8957e5;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.teacher-classes-create-btn:hover:not(:disabled) {
+  background: #a371f7;
+}
+
+.teacher-classes-create-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.teacher-classes-period {
+  margin: 0 0 12px;
+  color: #8b949e;
+  font-size: 13px;
+}
+
+.teacher-classes-count {
+  margin: 0;
+  color: #8b949e;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .teacher-classes-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .teacher-classes-header h1 {
+    font-size: 24px;
+  }
+}
+
+
+/* ========================================
+   TEACHER CLASS CARDS
+======================================== */
+
+.teacher-classes-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, 320px), 1fr)
+  );
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.teacher-class-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.teacher-class-card:hover {
+  border-color: #bc8cff;
+}
+
+.teacher-class-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.teacher-class-code {
+  color: #bc8cff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-class-section {
+  padding: 5px 9px;
+  color: #c9d1d9;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.teacher-class-name {
+  margin: 0 0 10px;
+  color: #f0f6fc;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.teacher-class-details,
+.teacher-class-schedule,
+.teacher-class-period {
+  margin: 0 0 8px;
+  color: #8b949e;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.teacher-class-period {
+  margin-bottom: 20px;
+}
+
+.teacher-class-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #30363d;
+}
+
+.teacher-class-metric-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+  color: #8b949e;
+  font-size: 13px;
+}
+
+.teacher-class-metric-heading strong {
+  color: #c9d1d9;
+  font-weight: 600;
+}
+
+.teacher-class-progress-track {
+  height: 7px;
+  overflow: hidden;
+  background: #30363d;
+  border-radius: 999px;
+}
+
+.teacher-class-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.25s ease;
+}
+
+.teacher-class-progress-fill.enrollment {
+  background: #bc8cff;
+}
+
+.teacher-class-progress-fill.grading {
+  background: #3fb950;
+}
+
+.teacher-class-grading-detail {
+  display: block;
+  margin-top: 8px;
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.teacher-class-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #30363d;
+}
+
+.teacher-class-action {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid #30363d;
+  border-radius: 7px;
+  background: #21262d;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.teacher-class-action:hover {
+  background: #30363d;
+}
+
+.teacher-class-action.view {
+  color: #bc8cff;
+}
+
+.teacher-class-action.delete {
+  color: #f85149;
+}
+
+.teacher-class-action.delete:hover {
+  background: rgba(248, 81, 73, 0.1);
+  border-color: #f85149;
+}
+
+@media (max-width: 480px) {
+  .teacher-class-card {
+    padding: 18px;
+  }
+}
+
+
+/* ========================================
+   CLASSES FILTER BAR
+======================================== */
+
+.teacher-classes-filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.teacher-classes-filter-select,
+.teacher-classes-year-input,
+.teacher-classes-search {
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+
+.teacher-classes-filter-select:focus,
+.teacher-classes-year-input:focus,
+.teacher-classes-search:focus {
+  border-color: #bc8cff;
+}
+
+.teacher-classes-custom-year-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher-classes-custom-year {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.teacher-classes-or {
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.teacher-classes-year-input {
+  width: 135px;
+}
+
+.teacher-classes-year-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  min-width: 35px;
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #8b949e;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.teacher-classes-year-submit:hover {
+  color: #bc8cff;
+  border-color: #bc8cff;
+}
+
+.teacher-classes-year-error {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 20px;
+  z-index: 2;
+  color: #f85149;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.teacher-classes-search {
+  flex: 1;
+  min-width: 160px;
+  max-width: 300px;
+}
+
+.teacher-classes-visible-count {
+  margin-left: auto;
+  color: #8b949e;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.teacher-classes-error {
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid rgba(248, 81, 73, 0.3);
+  border-radius: 6px;
+  color: #f85149;
+  background: rgba(248, 81, 73, 0.08);
+}
+
+.teacher-classes-loading {
+  margin-bottom: 12px;
+  color: #8b949e;
+  font-size: 13px;
+}
+
+.teacher-classes-empty {
+  padding: 64px 24px;
+  text-align: center;
+  color: #8b949e;
+}
+
+.teacher-classes-empty h3 {
+  margin-bottom: 8px;
+  color: #c9d1d9;
+  font-size: 20px;
+}
+
+.teacher-classes-empty p {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .teacher-classes-filter-bar {
+    align-items: stretch;
+  }
+
+  .teacher-classes-filter-select {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .teacher-classes-custom-year-wrapper {
+    width: 100%;
+  }
+
+  .teacher-classes-or {
+    display: none;
+  }
+
+  .teacher-classes-year-input {
+    flex: 1;
+    width: auto;
+  }
+
+  .teacher-classes-year-error {
+    position: static;
+    margin-top: 5px;
+    white-space: normal;
+  }
+
+  .teacher-classes-search {
+    width: 100%;
+    max-width: none;
+    flex-basis: 100%;
+  }
+
+  .teacher-classes-visible-count {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+
+
+/* ========================================
+   CREATE CLASS MODAL
+======================================== */
+
+.teacher-class-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.teacher-class-modal {
+  width: 600px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+}
+
+.teacher-class-modal h2 {
+  margin: 0 0 24px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.teacher-class-form-group {
+  margin-bottom: 20px;
+}
+
+.teacher-class-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #c9d1d9;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.teacher-class-form-group label.required-label {
+  color: #58a6ff;
+}
+
+.teacher-class-form-group small {
+  display: block;
+  margin-top: 4px;
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.teacher-class-form-input {
+  width: 100%;
+  padding: 10px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.teacher-class-form-input:focus {
+  outline: none;
+  border-color: #bc8cff;
+}
+
+.teacher-class-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.teacher-class-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #30363d;
+}
+
+.teacher-class-modal-cancel,
+.teacher-class-modal-submit {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.teacher-class-modal-cancel {
+  background: transparent;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+}
+
+.teacher-class-modal-cancel:hover {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.teacher-class-modal-submit {
+  background: #bc8cff;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.teacher-class-modal-submit:hover {
+  background: #a676e3;
+}
+
+@media (max-width: 768px) {
+  .teacher-class-modal {
+    width: 96vw;
+    max-width: 96vw;
+    max-height: 92vh;
+    padding: 20px;
+  }
+
+  .teacher-class-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .teacher-class-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .teacher-class-modal-cancel,
+  .teacher-class-modal-submit {
+    width: 100%;
+  }
+}
+
+
+/* Grading formula builder */
+
+.teacher-class-formula-section {
+  margin-top: 24px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.teacher-class-formula-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 18px;
+  border: 0;
+  background: #21262d;
+  color: #c9d1d9;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.teacher-grading-formula {
+  padding: 18px;
+}
+
+.teacher-grading-formula-heading h3 {
+  margin: 0 0 6px;
+  color: #f0f6fc;
+  font-size: 15px;
+}
+
+.teacher-grading-formula-heading p {
+  margin: 0 0 18px;
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.teacher-grading-components {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teacher-grading-component {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px 34px;
+  gap: 8px;
+  align-items: center;
+}
+
+.teacher-grading-weight {
+  position: relative;
+}
+
+.teacher-grading-weight input {
+  padding-right: 26px;
+}
+
+.teacher-grading-weight span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8b949e;
+  pointer-events: none;
+}
+
+.teacher-grading-remove {
+  height: 38px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #21262d;
+  color: #f85149;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.teacher-grading-remove:hover {
+  border-color: #f85149;
+}
+
+.teacher-grading-add {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px dashed #bc8cff;
+  border-radius: 6px;
+  background: transparent;
+  color: #bc8cff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.teacher-grading-total {
+  margin: 16px 0 22px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.teacher-grading-total.valid {
+  color: #3fb950;
+}
+
+.teacher-grading-total.invalid,
+.teacher-grading-error {
+  color: #f85149;
+}
+
+.teacher-grading-error {
+  padding: 0 18px 12px;
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .teacher-grading-component {
+    grid-template-columns: minmax(0, 1fr) 80px 30px;
+    gap: 5px;
+  }
+
+  .teacher-grading-formula {
+    padding: 12px;
+  }
+}
+
+
+/* ========================================
+   STUDENT ROSTER BUILDER
+======================================== */
+
+.teacher-roster-builder {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #0d1117;
+}
+
+.teacher-roster-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.teacher-roster-heading h3 {
+  margin: 0;
+  color: #f0f6fc;
+  font-size: 15px;
+}
+
+.teacher-roster-heading span {
+  color: #bc8cff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.teacher-roster-description {
+  margin: 8px 0 16px;
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.teacher-roster-student-list {
+  max-height: 240px;
+  overflow-y: auto;
+  margin-top: 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+}
+
+.teacher-roster-student {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #30363d;
+  cursor: pointer;
+}
+
+.teacher-roster-student:last-child {
+  border-bottom: none;
+}
+
+.teacher-roster-student:hover,
+.teacher-roster-student.selected {
+  background: #21262d;
+}
+
+.teacher-roster-student input {
+  accent-color: #bc8cff;
+  width: 16px;
+  height: 16px;
+}
+
+.teacher-roster-student-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.teacher-roster-student-info strong {
+  color: #c9d1d9;
+  font-size: 13px;
+}
+
+.teacher-roster-student-info span {
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.teacher-roster-empty {
+  padding: 20px;
+  color: #8b949e;
+  text-align: center;
+  font-size: 13px;
+}
+
+.teacher-roster-capacity-warning {
+  margin-top: 10px;
+  color: #d29922;
+  font-size: 12px;
+}
+
+/* Create Class modal submit button */
+.teacher-class-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  min-height: 40px;
+
+  background-color: #8957e5;
+  color: #ffffff;
+  border: 1px solid #8957e5;
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.teacher-class-submit-btn:hover:not(:disabled) {
+  background-color: #a371f7;
+  border-color: #a371f7;
+}
+
+.teacher-class-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Create Class modal scrolling */
+.teacher-class-modal {
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: #484f58 #161b22;
+}
+
+/* Chrome, Edge, Safari */
+.teacher-class-modal::-webkit-scrollbar {
+  width: 7px;
+}
+
+.teacher-class-modal::-webkit-scrollbar-track {
+  background: #161b22;
+  border-radius: 8px;
+}
+
+.teacher-class-modal::-webkit-scrollbar-thumb {
+  background: #484f58;
+  border-radius: 8px;
+}
+
+.teacher-class-modal::-webkit-scrollbar-thumb:hover {
+  background: #6e7681;
+}
+
+/* Locked fields in Edit Class */
+.teacher-class-form-input:disabled {
+  background-color: #0d1117;
+  color: #8b949e;
+  border-color: #30363d;
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+/* Grading formula lock */
+.teacher-grading-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.teacher-grading-fieldset:disabled {
+  opacity: 0.6;
+}
+
+.teacher-grading-fieldset:disabled input,
+.teacher-grading-fieldset:disabled button {
+  cursor: not-allowed;
+}
+
+/* Delete Class confirmation modal */
+
+.teacher-delete-modal {
+  width: 100%;
+  max-width: 460px;
+  padding: 24px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  color: #c9d1d9;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.teacher-delete-modal h2 {
+  margin: 0 0 16px;
+  color: #f0f6fc;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.teacher-delete-modal p {
+  line-height: 1.6;
+}
+
+.teacher-delete-warning {
+  margin: 16px 0 24px;
+  padding: 12px 14px;
+  color: #ffa198;
+  background: rgba(248, 81, 73, 0.08);
+  border: 1px solid rgba(248, 81, 73, 0.3);
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.teacher-delete-confirm-btn {
+  padding: 10px 18px;
+  background: #da3633;
+  border: 1px solid #f85149;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.teacher-delete-confirm-btn:hover:not(:disabled) {
+  background: #b62324;
+}
+
+.teacher-delete-confirm-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

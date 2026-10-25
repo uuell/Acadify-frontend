@@ -1,0 +1,178 @@
+
+.teacher-login-page {
+  --teacher-bg: #0d1117;
+  --teacher-card: #161b22;
+  --teacher-green: #2ea043;
+  --teacher-blue: #58a6ff;
+  --teacher-text: #c9d1d9;
+  --teacher-muted: #8b949e;
+  --teacher-border: #30363d;
+
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--teacher-bg);
+  color: var(--teacher-text);
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.teacher-login-page *,
+.teacher-login-page *::before,
+.teacher-login-page *::after {
+  box-sizing: border-box;
+}
+
+.teacher-login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+  background: var(--teacher-card);
+  border: 1px solid var(--teacher-border);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.teacher-login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.teacher-login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.teacher-login-logo svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--teacher-green);
+}
+
+.teacher-login-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--teacher-muted);
+}
+
+.teacher-login-role-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(46, 160, 67, 0.15);
+  color: var(--teacher-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.teacher-login-alert {
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.3);
+  color: #f85149;
+  font-size: 0.9rem;
+}
+
+.teacher-login-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.teacher-login-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--teacher-text);
+  font-size: 0.85rem;
+}
+
+.teacher-login-form-group input {
+  width: 100%;
+  padding: 12px;
+  background: var(--teacher-bg);
+  border: 1px solid var(--teacher-border);
+  border-radius: 6px;
+  color: var(--teacher-text);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.teacher-login-form-group input:focus {
+  outline: none;
+  border-color: var(--teacher-green);
+  box-shadow: 0 0 0 3px rgba(46, 160, 67, 0.1);
+}
+
+.teacher-login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 0.5rem;
+  background: var(--teacher-green);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.teacher-login-btn:hover:not(:disabled) {
+  background: #26843b;
+}
+
+.teacher-login-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.teacher-login-divider {
+  height: 1px;
+  margin: 1.5rem 0;
+  background: var(--teacher-border);
+}
+
+.teacher-login-footer-links {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.teacher-login-footer-links a {
+  color: var(--teacher-blue);
+  text-decoration: none;
+}
+
+.teacher-login-footer-links a:hover {
+  text-decoration: underline;
+}
+
+.teacher-login-back-home {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.teacher-login-back-home a {
+  color: var(--teacher-muted);
+  text-decoration: none;
+}
+
+.teacher-login-back-home a:hover {
+  color: var(--teacher-blue);
+}
+
+@media (max-width: 480px) {
+  .teacher-login-card {
+    padding: 1.75rem;
+  }
+}

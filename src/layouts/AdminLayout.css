@@ -1,0 +1,131 @@
+
+/* =========================================
+   ACADIFY ADMIN LAYOUT
+========================================= */
+
+.admin-layout {
+  --admin-bg: #0d1117;
+  --admin-sidebar-bg: #161b22;
+  --admin-card-bg: #21262d;
+  --admin-gold: #d29922;
+  --admin-text: #c9d1d9;
+  --admin-text-muted: #8b949e;
+  --admin-border: #30363d;
+
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.admin-main-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  margin-left: 260px;
+  padding: 32px;
+  background-color: var(--admin-bg);
+}
+
+/* =========================================
+   MOBILE HAMBURGER
+========================================= */
+
+.admin-hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1100;
+
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+
+  background-color: var(--admin-sidebar-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-hamburger-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 4px 0;
+  border-radius: 2px;
+  background-color: var(--admin-gold);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.admin-hamburger-btn.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.admin-hamburger-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.admin-hamburger-btn.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* =========================================
+   SIDEBAR OVERLAY
+========================================= */
+
+.admin-sidebar-overlay {
+  display: none;
+}
+
+/* =========================================
+   RESPONSIVE LAYOUT
+========================================= */
+
+@media (max-width: 768px) {
+  .admin-layout {
+    display: block;
+  }
+
+  .admin-main-content {
+    margin-left: 0;
+    padding: 84px 16px 24px;
+  }
+
+  .admin-hamburger-btn {
+    display: block;
+  }
+
+  .admin-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.65);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .admin-sidebar-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-main-content {
+    padding: 80px 12px 20px;
+  }
+}

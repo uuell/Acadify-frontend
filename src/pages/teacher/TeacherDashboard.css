@@ -1,0 +1,559 @@
+
+/* ========================================
+   ACADIFY TEACHER DASHBOARD
+   Original Flask Design - React Version
+======================================== */
+
+.teacher-dashboard {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #c9d1d9;
+}
+
+/* ========================================
+   DASHBOARD HEADER
+======================================== */
+
+.teacher-dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 2.5rem;
+}
+
+.teacher-dashboard-welcome {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.teacher-dashboard-welcome h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.teacher-dashboard-welcome p {
+  margin: 5px 0 0;
+  color: #8b949e;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   ACADEMIC PERIOD FILTERS
+======================================== */
+
+.teacher-dashboard-filters {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
+}
+
+.teacher-dashboard-filters select,
+.teacher-dashboard-custom-year input,
+.teacher-dashboard-custom-year button {
+  height: 38px;
+  padding: 8px 12px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: normal;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Dropdowns */
+
+.teacher-dashboard-filters select {
+  min-width: 125px;
+  cursor: pointer;
+}
+
+.teacher-dashboard-filters select:hover {
+  border-color: #8b949e;
+}
+
+.teacher-dashboard-filters select:focus-visible {
+  outline: 2px solid #bc8cff;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   CUSTOM SCHOOL YEAR
+======================================== */
+
+.teacher-dashboard-custom-year-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.teacher-dashboard-custom-year {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
+.teacher-dashboard-custom-year span {
+  color: #8b949e;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.teacher-dashboard-custom-year input {
+  width: 130px;
+  min-width: 0;
+}
+
+.teacher-dashboard-custom-year input::placeholder {
+  color: #8b949e;
+}
+
+.teacher-dashboard-custom-year input:focus {
+  outline: none;
+  border-color: #bc8cff;
+  box-shadow: 0 0 0 2px rgba(188, 140, 255, 0.15);
+}
+
+/* Invalid year input */
+
+.teacher-dashboard-custom-year input[aria-invalid="true"] {
+  border-color: #f85149;
+}
+
+.teacher-dashboard-custom-year input[aria-invalid="true"]:focus {
+  border-color: #f85149;
+  box-shadow: 0 0 0 2px rgba(248, 81, 73, 0.15);
+}
+
+/* Go button */
+
+.teacher-dashboard-custom-year button {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.teacher-dashboard-custom-year button:hover {
+  background-color: #30363d;
+  border-color: #bc8cff;
+}
+
+.teacher-dashboard-custom-year button:focus-visible {
+  outline: 2px solid #bc8cff;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   CUSTOM YEAR VALIDATION MESSAGE
+======================================== */
+
+.teacher-dashboard-filter-error {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 20px;
+  z-index: 2;
+
+  width: max-content;
+  max-width: 260px;
+  margin: 0;
+  padding: 0;
+
+  color: #f85149;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Number of displayed classes */
+
+.teacher-dashboard-class-count {
+  color: #8b949e;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* ========================================
+   DASHBOARD STATISTICS GRID
+======================================== */
+
+.teacher-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Statistics cards */
+
+.teacher-stat-card {
+  min-width: 0;
+  padding: 1.5rem;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+}
+
+/* Card header */
+
+.teacher-stat-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Statistics icons */
+
+.teacher-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  padding: 8px;
+  background-color: #21262d;
+  border-radius: 8px;
+  color: #bc8cff;
+}
+
+.teacher-stat-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Statistics values */
+
+.teacher-stat-value {
+  margin: 0;
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.teacher-stat-label {
+  color: #8b949e;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Status labels */
+
+.teacher-stat-active {
+  color: #238636;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.teacher-stat-week-label {
+  color: #bc8cff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   WEEKLY SCHEDULE
+======================================== */
+
+.teacher-week-view {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.teacher-day-box {
+  flex: 1;
+  min-width: 0;
+  padding: 4px;
+
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+
+  color: #c9d1d9;
+  text-align: center;
+  font-size: 0.65rem;
+}
+
+/* Highlight days with scheduled classes */
+
+.teacher-day-box.active {
+  background-color: rgba(188, 140, 255, 0.1);
+  border-color: #bc8cff;
+  color: #fff;
+}
+
+.teacher-day-label {
+  display: block;
+  margin-bottom: 2px;
+  color: #8b949e;
+}
+
+.teacher-week-caption {
+  margin-top: 8px;
+}
+
+/* ========================================
+   ACTIVE CLASSES SECTION
+   Original Flask Design
+======================================== */
+
+.teacher-dashboard-section {
+  margin-bottom: 2.5rem;
+}
+
+.teacher-dashboard-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.teacher-dashboard-section-title h2 {
+  margin: 0;
+  color: #c9d1d9;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.teacher-dashboard-section-link {
+  color: #58a6ff;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.teacher-dashboard-section-link:hover {
+  text-decoration: underline;
+}
+
+/* Course grid */
+
+.teacher-course-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, 300px), 1fr)
+  );
+  gap: 1.5rem;
+}
+
+/* Course card */
+
+.teacher-course-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 160px;
+  padding: 1.5rem;
+
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.teacher-course-card:hover {
+  border-color: #bc8cff;
+  transform: translateY(-2px);
+}
+
+.teacher-course-card:focus-visible {
+  outline: 2px solid #bc8cff;
+  outline-offset: 3px;
+}
+
+/* Course information */
+
+.teacher-course-code {
+  margin-bottom: 4px;
+  color: #bc8cff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.teacher-course-name {
+  margin-bottom: 1rem;
+  color: #c9d1d9;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Course footer */
+
+.teacher-course-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  padding-top: 1rem;
+  border-top: 1px solid #30363d;
+
+  color: #8b949e;
+  font-size: 0.8rem;
+}
+
+.teacher-course-ungraded {
+  color: #d29922;
+}
+
+.teacher-course-graded {
+  color: #238636;
+}
+
+/* ========================================
+   EMPTY CLASSES STATE
+======================================== */
+
+.teacher-dashboard-empty {
+  padding: 3rem;
+  color: #8b949e;
+  text-align: center;
+}
+
+.teacher-dashboard-empty svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+  fill: none;
+  stroke: currentColor;
+}
+
+.teacher-dashboard-empty h3 {
+  margin-bottom: 8px;
+  color: #c9d1d9;
+  font-size: 1.1rem;
+}
+
+.teacher-dashboard-empty p {
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+/* Tablets */
+
+@media (max-width: 1024px) {
+  .teacher-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .teacher-dashboard-welcome {
+    flex: 0 1 auto;
+  }
+
+  .teacher-dashboard-filters {
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .teacher-dashboard-header {
+    gap: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .teacher-dashboard-welcome h1 {
+    font-size: 1.5rem;
+  }
+
+  .teacher-dashboard-welcome p {
+    font-size: 0.85rem;
+  }
+
+  .teacher-dashboard-filters {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .teacher-dashboard-filter-error {
+    position: static;
+    width: auto;
+    max-width: 100%;
+    margin-top: 6px;
+  }
+
+  .teacher-stats-grid {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .teacher-stat-card {
+    padding: 1.25rem;
+  }
+
+  .teacher-course-grid {
+    gap: 1rem;
+  }
+
+  .teacher-course-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 480px) {
+  .teacher-dashboard-filters select {
+    flex: 1 1 130px;
+    min-width: 0;
+  }
+
+  .teacher-dashboard-custom-year-wrapper {
+    max-width: 100%;
+  }
+
+  .teacher-dashboard-custom-year input {
+    width: 125px;
+  }
+
+  .teacher-week-view {
+    gap: 5px;
+  }
+
+  .teacher-day-box {
+    padding: 4px 2px;
+  }
+}

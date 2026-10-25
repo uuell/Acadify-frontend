@@ -1,0 +1,137 @@
+
+/* Original Acadify Teacher Sidebar */
+
+.teacher-sidebar {
+  --teacher-purple: #bc8cff;
+  --teacher-text: #c9d1d9;
+  --teacher-muted: #8b949e;
+  --teacher-border: #30363d;
+
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: 100vh;
+  padding: 1.5rem;
+  background-color: #161b22;
+  border-right: 1px solid var(--teacher-border);
+  color: var(--teacher-text);
+  overflow-y: auto;
+}
+
+/* Logo */
+
+.teacher-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2.5rem;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.teacher-sidebar-logo .teacher-sidebar-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--teacher-purple);
+}
+
+/* Navigation */
+
+.teacher-sidebar-navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher-sidebar-group {
+  margin-bottom: 2rem;
+}
+
+.teacher-sidebar-label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--teacher-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.teacher-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  color: var(--teacher-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.teacher-sidebar-link:hover {
+  background-color: var(--teacher-border);
+}
+
+.teacher-sidebar-link.active {
+  background-color: rgba(188, 140, 255, 0.1);
+  color: var(--teacher-purple);
+  font-weight: 600;
+}
+
+/* Icons */
+
+.teacher-sidebar-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Logout */
+
+.teacher-sidebar-footer {
+  margin-top: auto;
+}
+
+.teacher-sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #f85149;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.teacher-sidebar-logout:hover {
+  background-color: rgba(248, 81, 73, 0.1);
+}
+
+.teacher-sidebar-logout:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.teacher-sidebar-error {
+  margin: 8px 12px 0;
+  color: #f85149;
+  font-size: 12px;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .teacher-sidebar {
+    padding: 1.5rem;
+  }
+}

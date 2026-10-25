@@ -1,0 +1,255 @@
+.student-grades-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.student-grades-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.student-grades-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.student-grades-filter label {
+  color: #8b949e;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.student-grades-filter select {
+  padding: 10px 14px;
+  background: #161b22;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.student-grades-filter select:focus {
+  outline: none;
+  border-color: #58a6ff;
+}
+
+@media (max-width: 600px) {
+  .student-grades-filters {
+    flex-direction: column;
+  }
+
+  .student-grades-filter {
+    width: 100%;
+  }
+}
+
+.student-subject-grade-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.student-subject-grade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.student-subject-grade-info {
+  min-width: 0;
+}
+
+.student-subject-grade-code {
+  color: #58a6ff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.student-subject-grade-info h2 {
+  color: #f0f6fc;
+  font-size: 20px;
+  margin: 8px 0;
+}
+
+.student-subject-grade-info p {
+  color: #8b949e;
+  font-size: 13px;
+  margin: 0;
+}
+
+.student-subject-final-grade {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.student-subject-final-grade span {
+  color: #8b949e;
+  font-size: 13px;
+}
+
+.student-subject-final-grade strong {
+  color: #3fb950;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.student-subject-formula {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #30363d;
+}
+
+.student-subject-formula h3 {
+  color: #f0f6fc;
+  font-size: 15px;
+  margin: 0 0 16px;
+}
+
+.student-subject-formula-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.student-subject-formula-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: #21262d;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.student-subject-formula-item span {
+  color: #8b949e;
+  font-size: 13px;
+}
+
+.student-subject-formula-item strong {
+  color: #f0f6fc;
+  font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .student-subject-grade-card {
+    padding: 16px;
+  }
+
+  .student-subject-grade-header {
+    flex-direction: column;
+  }
+
+  .student-subject-final-grade {
+    align-items: flex-start;
+  }
+
+  .student-subject-formula-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.student-grades-empty {
+  padding: 40px 24px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  color: #8b949e;
+  text-align: center;
+}
+
+.student-assessment-breakdown {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #30363d;
+}
+
+.student-assessment-breakdown h3 {
+  margin: 0 0 16px;
+  color: #f0f6fc;
+  font-size: 15px;
+}
+
+.student-assessment-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.student-assessment-tab {
+  padding: 10px 16px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #21262d;
+  color: #8b949e;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.student-assessment-tab:hover {
+  background: #30363d;
+  color: #f0f6fc;
+}
+
+.student-assessment-tab.active {
+  background: #1f3a5f;
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.student-assessment-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.student-assessment-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.student-assessment-table th,
+.student-assessment-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #30363d;
+  font-size: 13px;
+}
+
+.student-assessment-table th {
+  color: #8b949e;
+  font-weight: 600;
+}
+
+.student-assessment-table td {
+  color: #c9d1d9;
+}
+
+.student-assessment-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.student-assessment-table tbody tr:hover {
+  background: #1c2128;
+}
+
+.student-assessment-empty {
+  color: #8b949e;
+  font-size: 14px;
+  padding: 20px 0;
+}

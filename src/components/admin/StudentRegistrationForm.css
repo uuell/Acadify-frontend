@@ -1,0 +1,198 @@
+
+/* =========================================
+   STUDENT REGISTRATION FORM
+========================================= */
+
+.admin-registration-form {
+  padding: 28px;
+  background: var(--admin-card-bg, #21262d);
+  border: 1px solid var(--admin-border, #30363d);
+  border-radius: 12px;
+}
+
+.admin-registration-heading {
+  margin-bottom: 24px;
+}
+
+.admin-registration-heading h3 {
+  margin: 0 0 8px;
+  color: #f0f6fc;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.admin-registration-heading p {
+  margin: 0;
+  color: var(--admin-text-muted, #8b949e);
+  font-size: 13px;
+}
+
+/* =========================================
+   FORM GRID
+========================================= */
+
+.admin-registration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.admin-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.admin-form-field label {
+  color: var(--admin-text, #c9d1d9);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-form-field input,
+.admin-form-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 11px 14px;
+  background: var(--admin-bg, #0d1117);
+  border: 1px solid var(--admin-border, #30363d);
+  border-radius: 8px;
+  color: var(--admin-text, #c9d1d9);
+  font-family: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-form-field input::placeholder {
+  color: var(--admin-text-muted, #8b949e);
+}
+
+.admin-form-field input:focus,
+.admin-form-field select:focus {
+  outline: none;
+  border-color: var(--admin-gold, #d29922);
+  box-shadow: 0 0 0 3px rgba(210, 153, 34, 0.12);
+}
+
+.admin-form-field input:disabled,
+.admin-form-field select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-form-field select {
+  cursor: pointer;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.admin-registration-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+@media (max-width: 480px) {
+  .admin-registration-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.admin-registration-actions button {
+  min-height: 44px;
+  padding: 12px 24px;
+  background: var(--admin-gold, #d29922);
+  border: 1px solid var(--admin-gold, #d29922);
+  border-radius: 8px;
+  color: #0d1117;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-registration-actions button:hover:not(:disabled) {
+  background: #e3ad42;
+  transform: translateY(-1px);
+}
+
+.admin-registration-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-registration-actions button:focus-visible {
+  outline: 2px solid #f0f6fc;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   FEEDBACK MESSAGES
+========================================= */
+
+.admin-registration-error,
+.admin-registration-success {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.admin-registration-error {
+  color: #f85149;
+  background: rgba(248, 81, 73, 0.08);
+  border: 1px solid rgba(248, 81, 73, 0.3);
+}
+
+.admin-registration-success {
+  color: #3fb950;
+  background: rgba(63, 185, 80, 0.08);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+  .admin-registration-form {
+    padding: 20px;
+  }
+
+  .admin-registration-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-registration-form {
+    padding: 16px;
+  }
+
+  .admin-registration-actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-form-field input,
+  .admin-form-field select,
+  .admin-registration-actions button {
+    transition: none;
+  }
+}
