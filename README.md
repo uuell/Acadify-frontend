@@ -1,78 +1,149 @@
-# React + TypeScript + Vite
+# Acadify — School Grading System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Acadify is a web-based school grading system designed to help manage academic records and grading workflows for students, teachers, and administrators.
 
-Currently, two official plugins are available:
+This repository contains the **frontend application**, built with React, TypeScript, and Vite. It connects to a Flask backend through a REST API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Screenshots
 
-## React Compiler
+<!--
+Save actual screenshots in docs/screenshots/ and uncomment each image
+after adding the corresponding file.
+-->
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+<!-- Homepage -->
+![Acadify Homepage](docs/screenshots/homepage.png)
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+<!-- Student Dashboard -->
+![Student Dashboard](docs/screenshots/student-dashboard.png)
 
-## Expanding the ESLint configuration
+<!-- Teacher Dashboard -->
+![Teacher Dashboard](docs/screenshots/teacher-dashboard.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<!-- Admin Dashboard -->
+![Admin Dashboard](docs/screenshots/admin-dashboard.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+*Screenshots will be added as the frontend interface is finalized.*
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Acadify is being developed to support the following workflows:
 
+- **Student portal** — access student-facing academic information.
+- **Teacher portal** — support teacher-facing grading and academic workflows.
+- **Administrator portal** — support administrative management of the grading system.
+- **API integration** — communicate with the Flask backend.
+- **Responsive interface** — provide an interface that adapts to different screen sizes.
+
+Feature availability depends on the current implementation and backend integration.
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| React | Building the user interface |
+| TypeScript | Type-safe JavaScript development |
+| Vite | Frontend development server and build tool |
+| CSS | Styling and responsive layouts |
+| ESLint | Code quality and linting |
+| Flask REST API | Backend integration |
+
+## Project Structure
+
+```text
+Acadify-frontend/
+├── public/                 # Static assets
+├── src/                    # Application source code
+│   ├── components/         # Reusable UI components
+│   ├── context/            # Shared application state
+│   ├── pages/              # Application pages
+│   └── ...                 # Other source files
+├── index.html
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+*The exact contents of `src/` may vary as development continues.*
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
 
+Make sure you have installed:
+
+- [Node.js](https://nodejs.org/) — preferably an LTS version.
+- npm, which is included with Node.js.
+- Git, if you want to clone the repository.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/uuell/Acadify-frontend.git
+cd Acadify-frontend
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create a local `.env` file in the project root if the application requires environment variables.
+
+For example, if the frontend uses a Vite API base URL:
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:5000
+```
+
+Use the variable name and backend URL expected by the actual application. The example above is illustrative; verify it against the project's source code.
+
+**Security:** Never commit `.env` files, API keys, passwords, or other secrets to GitHub.
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL printed in the terminal, commonly `http://localhost:5173`.
+
+### 5. Build for production
+
+```bash
+npm run build
+```
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Backend Integration
+
+Acadify uses a separate Flask backend to handle server-side logic, authentication, and academic data.
+
+Make sure the backend is running and the frontend's API configuration points to the correct backend URL. Authentication and API requests must use the configuration expected by the backend.
+
+The frontend and backend are maintained in separate repositories.
+
+## Development Status
+
+Acadify is an ongoing portfolio project. The frontend is being developed incrementally, with existing interfaces being migrated to React and integrated with the Flask API.
+
+Some features, integrations, and deployment configurations may still be in progress.
+
+## Related Repository
+
+- **Frontend:** [Acadify-frontend](https://github.com/uuell/Acadify-frontend)
+- **Backend:** [Acadify-Main](https://github.com/uuell/Acadify-Main)
+
+## License
+
+No license has been specified yet. All rights are reserved by the project author unless a license is added to this repository.
